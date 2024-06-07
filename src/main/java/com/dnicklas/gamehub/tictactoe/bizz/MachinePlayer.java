@@ -1,5 +1,6 @@
 package com.dnicklas.gamehub.tictactoe.bizz;
 
+import com.dnicklas.gamehub.exceptions.InvalidTicTacToeFieldException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,8 +16,7 @@ public class MachinePlayer implements Player {
         if (board.getBoard().get(trueField) == null) {
             board.getBoard().replace(trueField, marker);
         } else {
-            // TODO: make custom exception and handle with HTTP code
-            throw new RuntimeException();
+            throw new InvalidTicTacToeFieldException();
         }
     }
 

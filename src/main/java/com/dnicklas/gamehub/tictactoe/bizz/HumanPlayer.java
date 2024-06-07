@@ -1,5 +1,6 @@
 package com.dnicklas.gamehub.tictactoe.bizz;
 
+import com.dnicklas.gamehub.exceptions.InvalidTicTacToeFieldException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,8 +16,7 @@ public class HumanPlayer implements Player {
         if (board.getBoard().get(field) == null) {
             board.getBoard().replace(field, marker);
         } else {
-            // TODO: make custom exception and handle with HTTP code
-            throw new RuntimeException();
+            throw new InvalidTicTacToeFieldException();
         }
     }
 }
